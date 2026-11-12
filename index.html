@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="am" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASH-X-B | P2P Crypto & ETB Exchange</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0b0f19; color: #f3f4f6; font-family: system-ui, -apple-system, sans-serif; }
+        .glass-card { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .btn-buy { background: #10b981; transition: all 0.2s; }
+        .btn-buy:hover { background: #059669; }
+        .btn-sell { background: #ef4444; transition: all 0.2s; }
+        .btn-sell:hover { background: #dc2626; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+    <!-- Navigation Header -->
+    <header class="glass-card border-b border-gray-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-black tracking-wider text-red-500">ASH<span class="text-white">X</span>B</span>
+                <span class="text-xs bg-red-500/20 text-red-400 px-2 py-0.5 rounded-full font-semibold">P2P</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xs text-gray-400 hidden sm:inline"><i class="fa-solid fa-circle text-emerald-500 text-[10px] mr-1"></i> Connected</span>
+                <button class="bg-gray-800 hover:bg-gray-700 text-sm px-3 py-1.5 rounded-lg font-medium border border-gray-700">Orders</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full">
+        <!-- Hero / Market Banner -->
+        <div class="glass-card rounded-2xl p-6 mb-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-bold mb-2">Secure P2P Marketplace</h1>
+                <p class="text-gray-400 text-sm">Trade USDT, BTC, and ETB seamlessly with trusted peers.</p>
+            </div>
+            <div class="mt-4 sm:mt-0">
+                <button class="bg-red-600 hover:bg-red-500 text-white font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-red-600/20 text-sm">
+                    <i class="fa-solid fa-plus mr-1"></i> Post New Offer
+                </button>
+            </div>
+        </div>
+
+        <!-- P2P Offers Section -->
+        <div class="space-y-4">
+            <h2 class="text-lg font-bold text-gray-200">Active Offers</h2>
+            
+            <!-- Sample Offer Card -->
+            <div class="glass-card rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold text-lg">
+                        A
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="font-bold text-white">Ash_Trader</span>
+                            <span class="text-xs bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">98% Completion</span>
+                        </div>
+                        <div class="text-xs text-gray-400 mt-0.5">Commercial Bank of Ethiopia • Telebirr</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-6 w-full sm:w-auto justify-between sm:justify-end">
+                    <div class="text-right">
+                        <div class="text-lg font-extrabold text-emerald-400">142.50 <span class="text-xs text-gray-400">ETB/USDT</span></div>
+                        <div class="text-xs text-gray-400">Limit: 5,000 - 50,000 ETB</div>
+                    </div>
+                    <button class="btn-buy text-white font-bold px-5 py-2 rounded-xl text-sm shadow-md">
+                        Buy USDT
+                    </button>
+                </div>
+            </div>
+
+            <!-- Another Sample Offer Card -->
+            <div class="glass-card rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold text-lg">
+                        E
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="font-bold text-white">EthioExchange</span>
+                            <span class="text-xs bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">100% Completion</span>
+                        </div>
+                        <div class="text-xs text-gray-400 mt-0.5">CBE • Awash Bank</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-6 w-full sm:w-auto justify-between sm:justify-end">
+                    <div class="text-right">
+                        <div class="text-lg font-extrabold text-red-400">143.00 <span class="text-xs text-gray-400">ETB/USDT</span></div>
+                        <div class="text-xs text-gray-400">Limit: 10,000 - 100,000 ETB</div>
+                    </div>
+                    <button class="btn-sell text-white font-bold px-5 py-2 rounded-xl text-sm shadow-md">
+                        Sell USDT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-6 text-center text-xs text-gray-500">
+        &copy; 2026 ASH-X-B P2P Exchange. Powered by Supabase & GitHub Pages.
+    </footer>
+</body>
+</html>
